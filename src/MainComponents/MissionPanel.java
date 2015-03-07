@@ -1,20 +1,20 @@
 package MainComponents;
 
-import GraphicalComponents.GraphicalPanel;
+import GraphicalComponents.GraphicalFrame;
 
 /**
  * Created by julescantegril on 07/03/2015.
  */
 public class MissionPanel {
 
-    private GraphicalPanel gp;
+    private GraphicalFrame gp;
 
     /**
      * Instatiate a new mission Panel
      */
 
     public MissionPanel(){
-        this.gp = new GraphicalPanel();
+        this.gp = new GraphicalFrame();
     }
 
     /**
@@ -24,6 +24,15 @@ public class MissionPanel {
 
     public void addMission(Mission mission){
 
+    }
+
+    /**
+     * Permit the user to get the frame after the add of mission and submission
+     * @return the frame associated with every missions added
+     */
+
+    public GraphicalFrame getPannelFrame(){
+        return this.gp;
     }
     
 

@@ -28,9 +28,19 @@ public class Mission {
         submissions  = new ArrayList<Submission>();
     }
 
+    /**
+     * Add a submission to the current mission
+     * @param sub the submission to add
+     */
+
     public void addSubmission(Submission sub){
         this.submissions.add(sub);
     }
+
+    /**
+     *
+     * @return  the submission list of the msision
+     */
 
     public ArrayList<Submission> getSubmissions(){
         return this.submissions;
