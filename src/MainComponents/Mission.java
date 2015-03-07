@@ -1,3 +1,5 @@
+package MainComponents;
+
 import java.util.ArrayList;
 
 /**
@@ -6,7 +8,7 @@ import java.util.ArrayList;
 public class Mission {
 
     /**
-     * This class is the Mission object
+     * This class is the Mssion object
      * A mission is referenced by at least his name and often a description
      * It also has submissions but it is not necessary
      */
