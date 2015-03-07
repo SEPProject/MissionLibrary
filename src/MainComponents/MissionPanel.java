@@ -1,20 +1,20 @@
 package MainComponents;
 
-import GraphicalComponents.GraphicalFrame;
+import GraphicalComponents.GraphicalFrameJSWING;
 
 /**
  * Created by julescantegril on 07/03/2015.
  */
 public class MissionPanel {
 
-    private GraphicalFrame gp;
+    private GraphicalFrameJSWING gp;
 
     /**
      * Instatiate a new mission Panel
      */
 
     public MissionPanel(){
-        this.gp = new GraphicalFrame();
+        this.gp = new GraphicalFrameJSWING();
     }
 
     /**
@@ -23,7 +23,6 @@ public class MissionPanel {
      */
 
     public void addMission(Mission mission){
-
     }
 
     /**
@@ -31,7 +30,7 @@ public class MissionPanel {
      * @return the frame associated with every missions added
      */
 
-    public GraphicalFrame getPannelFrame(){
+    public GraphicalFrameJSWING getPannelFrame(){
         return this.gp;
     }
     
