@@ -52,6 +52,7 @@ public class MissionPanel {
 
         mp.addMission(mission);
         mp.addMission(mission2);
+        mp.addMission(mission2);
 
     }
 

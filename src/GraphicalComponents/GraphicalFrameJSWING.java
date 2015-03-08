@@ -5,6 +5,7 @@ import MainComponents.Submission;
 import UtilsComponent.UtilsJSWING;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by julescantegril on 07/03/2015.
@@ -12,7 +13,9 @@ import javax.swing.*;
 public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFrame{
 
     JFrame jf;
+    JPanel jpLittle;
     JPanel jp;
+    JScrollPane jsp;
 
     UtilsJSWING utils;
     int Y_BASE = 20;
@@ -32,10 +35,15 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         jf.getContentPane().setLayout(null);
         jf.setVisible(true);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         jp = new JPanel();
-        jp.setSize(800,500);
-        jp.setLayout(null);
-        jf.getContentPane().add(jp);
+        jp.setSize(800, 500);
+        jp.setLayout(new GridLayout(30,0));
+
+        jsp = new JScrollPane(jp);
+        jsp.setSize(800, 500);
+
+        jf.add(jsp);
 
     }
 
@@ -75,8 +83,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
                 Y_BASE = Y_BASE + DELTA_SUBMISSION;
             }
         }
+
         Y_BASE = Y_BASE + DELTA_MISSION;
-        jf.revalidate();
-        jf.repaint();
     }
 }
