@@ -1,6 +1,7 @@
 package GraphicalComponents;
 
 import MainComponents.Mission;
+import MainComponents.Submission;
 import UtilsComponent.UtilsJSWING;
 
 import javax.swing.*;
@@ -35,13 +36,26 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
 
         if(mission.hasDescription()){
             JLabel missionDescription = new JLabel(mission.getDescription());
-            missionDescription.setBounds(15, 60, 400, 50);//x y w h
+            missionDescription.setBounds(20, 60, 400, 50);//x y w h
             utils.setDescription(missionDescription);
             jf.getContentPane().add(missionDescription);
         }
         if(mission.hasSubmission()){
+            int xBase = 20;
+            int yBase = 100;
             for(int i = 0;i < mission.getSubmissions().size();i++){
-
+                Submission sub = mission.getSubmissions().get(i);
+                JLabel missionSubmission = new JLabel(sub.getName());
+                missionSubmission.setBounds(xBase, yBase, 400, 50);//x y w h
+                utils.setSubtitle(missionSubmission);
+                jf.getContentPane().add(missionSubmission);
+                if(sub.hasDescription()){
+                    JLabel missionSubDescription = new JLabel(sub.getDescription());
+                    missionSubDescription.setBounds(xBase, yBase, 400, 50);//x y w h
+                    utils.setSubdescription(missionSubDescription);
+                    jf.getContentPane().add(missionSubDescription);
+                }
+                yBase = yBase + 40;
             }
         }
 

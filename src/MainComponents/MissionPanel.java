@@ -38,7 +38,14 @@ public class MissionPanel {
 
     public static void main(String [] args){
             MissionPanel mp = new MissionPanel();
-            mp.addMission(new Mission("Premier mission","Premiere description"));
+            Mission mission = new Mission("Premier mission","Premiere description");
+            mission.addSubmission(new Submission("Premier sub","Premiere sub desc"));
+            mission.addSubmission(new Submission("Deux sub","Deux sub desc"));
+            mission.addSubmission(new Submission("Trois sub","Trois sub desc"));
+            mission.addSubmission(new Submission("Quatre sub","Quatre sub desc"));
+
+        mp.addMission(mission);
+
     }
 
 }
