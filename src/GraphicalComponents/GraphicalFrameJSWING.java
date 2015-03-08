@@ -55,28 +55,28 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     @Override
     public void addMissionToFrame(Mission mission) {
         JLabel missionTitle = new JLabel(mission.getName());
-        missionTitle.setBounds(X_TITRE, Y_BASE, 400, 50);//x y w h
+        missionTitle.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION, X_TITRE, 0, 0));
         utils.setTitle(missionTitle);
         jp.add(missionTitle);
-        Y_BASE = Y_BASE+DELTA_DESCRIPTION;
         if(mission.hasDescription()){
             JLabel missionDescription = new JLabel(mission.getDescription());
-            missionDescription.setBounds(X_DESCRIPTION, Y_BASE, 400, 50);//x y w h
+            missionDescription.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION, X_DESCRIPTION, 0, 0));
+
             utils.setDescription(missionDescription);
             jp.add(missionDescription);
         }
-        Y_BASE = Y_BASE+DELTA_SUBMISSION;
         if(mission.hasSubmission()){
             for(int i = 0;i < mission.getSubmissions().size();i++){
                 Submission sub = mission.getSubmissions().get(i);
                 JLabel missionSubmission = new JLabel(sub.getName());
-                missionSubmission.setBounds(X_SUBMISSION, Y_BASE, 400, 50);//x y w h
+                missionSubmission.setBorder(BorderFactory.createEmptyBorder(DELTA_SUBMISSION,X_SUBMISSION , 0, 0));
+
                 utils.setSubtitle(missionSubmission);
                 jp.add(missionSubmission);
                 if(sub.hasDescription()){
-                    Y_BASE = Y_BASE + DELTA_DESCRIPTION;
                     JLabel missionSubDescription = new JLabel(sub.getDescription());
-                    missionSubDescription.setBounds(X_SUBDESCRIPTION, Y_BASE, 400, 50);//x y w h
+                    missionSubDescription.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION,X_SUBDESCRIPTION , 0, 0));
+
                     utils.setSubdescription(missionSubDescription);
                     jp.add(missionSubDescription);
                 }
