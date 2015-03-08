@@ -50,6 +50,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
                 utils.setSubtitle(missionSubmission);
                 jf.getContentPane().add(missionSubmission);
                 if(sub.hasDescription()){
+                    yBase = yBase + 40;
                     JLabel missionSubDescription = new JLabel(sub.getDescription());
                     missionSubDescription.setBounds(xBase, yBase, 400, 50);//x y w h
                     utils.setSubdescription(missionSubDescription);
