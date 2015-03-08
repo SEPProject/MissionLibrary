@@ -33,6 +33,8 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         jf.setVisible(true);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jp = new JPanel();
+        jp.setSize(800,500);
+        jp.setLayout(null);
         jf.getContentPane().add(jp);
 
     }
@@ -47,13 +49,13 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         JLabel missionTitle = new JLabel(mission.getName());
         missionTitle.setBounds(X_TITRE, Y_BASE, 400, 50);//x y w h
         utils.setTitle(missionTitle);
-        jf.getContentPane().add(missionTitle);
+        jp.add(missionTitle);
         Y_BASE = Y_BASE+DELTA_DESCRIPTION;
         if(mission.hasDescription()){
             JLabel missionDescription = new JLabel(mission.getDescription());
             missionDescription.setBounds(X_DESCRIPTION, Y_BASE, 400, 50);//x y w h
             utils.setDescription(missionDescription);
-            jf.getContentPane().add(missionDescription);
+            jp.add(missionDescription);
         }
         Y_BASE = Y_BASE+DELTA_SUBMISSION;
         if(mission.hasSubmission()){
@@ -62,13 +64,13 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
                 JLabel missionSubmission = new JLabel(sub.getName());
                 missionSubmission.setBounds(X_SUBMISSION, Y_BASE, 400, 50);//x y w h
                 utils.setSubtitle(missionSubmission);
-                jf.getContentPane().add(missionSubmission);
+                jp.add(missionSubmission);
                 if(sub.hasDescription()){
                     Y_BASE = Y_BASE + DELTA_DESCRIPTION;
                     JLabel missionSubDescription = new JLabel(sub.getDescription());
                     missionSubDescription.setBounds(X_SUBDESCRIPTION, Y_BASE, 400, 50);//x y w h
                     utils.setSubdescription(missionSubDescription);
-                    jf.getContentPane().add(missionSubDescription);
+                    jp.add(missionSubDescription);
                 }
                 Y_BASE = Y_BASE + DELTA_SUBMISSION;
             }
