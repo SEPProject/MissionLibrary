@@ -23,6 +23,7 @@ public class MissionPanel {
      */
 
     public void addMission(Mission mission){
+        gp.addMissionToFrame(mission);
     }
 
     /**
@@ -35,6 +36,9 @@ public class MissionPanel {
     }
     
 
-
+    public static void main(String [] args){
+            MissionPanel mp = new MissionPanel();
+            mp.addMission(new Mission("Premier mission","Premiere description"));
+    }
 
 }

@@ -9,7 +9,7 @@ public class Mission {
 
     /**
      * This class is the Mssion object
-     * A mission is referenced by at least his name and often a description
+     * A mission is referen ced by at least his name and often a description
      * It also has submissions but it is not necessary
      */
 
@@ -60,5 +60,21 @@ public class Mission {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean hasSubmission(){
+        if(submissions.size() != 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean hasDescription(){
+        if(description == null){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

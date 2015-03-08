@@ -1,26 +1,31 @@
 package UtilsComponent;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by julescantegril on 07/03/2015.
  */
-public class UtilsJSWING implements AbstractUtils<JTextArea> {
+public class UtilsJSWING implements AbstractUtils<JLabel> {
 
-    public void setTitle(JTextArea text){
-
+    public void setTitle(JLabel text){
+        Font font = new Font("Serif", Font.BOLD, 20);
+        text.setFont(font);
     }
 
-    public void setDescription(JTextArea text){
-
+    public void setDescription(JLabel text){
+        Font font = new Font("Serif", Font.ITALIC, 18);
+        text.setFont(font);
     }
 
-    public void setSubtitle(JTextArea text){
-
+    public void setSubtitle(JLabel text){
+        Font font = new Font("Serif", Font.PLAIN, 18);
+        text.setFont(font);
     }
 
-    public void setSubdescription(JTextArea text){
-
+    public void setSubdescription(JLabel text){
+        Font font = new Font("Serif", Font.ITALIC, 16);
+        text.setFont(font);
     }
 
 }

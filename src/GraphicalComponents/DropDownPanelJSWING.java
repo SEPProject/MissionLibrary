@@ -1,6 +1,7 @@
 package GraphicalComponents;
 
 import MainComponents.Mission;
+import MainComponents.Submission;
 
 import javax.swing.*;
 
@@ -16,6 +17,11 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
 
     @Override
     public void dropDown(boolean drop) {
+
+    }
+
+    @Override
+    public void addSubmissionToPanel(Submission mission) {
 
     }
 }
