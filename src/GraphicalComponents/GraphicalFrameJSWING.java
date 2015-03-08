@@ -15,15 +15,14 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     JPanel jp;
 
     UtilsJSWING utils;
-    int xBase = 20;
-    int yBase = 20;
-    int deltaMission = 30;
-    int deltaSubmission = 40;
-    int deltaDescription = 15;
-    int xTitre = 20;
-    int xDescription = 25;
-    int xSubmission = 25;
-    int xSubDescription = 30;
+    int Y_BASE = 20;
+    int DELTA_MISSION = 30;
+    int DELTA_SUBMISSION = 40;
+    int DELTA_DESCRIPTION = 15;
+    int X_TITRE = 20;
+    int X_DESCRIPTION = 25;
+    int X_SUBMISSION = 25;
+    int X_SUBDESCRIPTION = 30;
 
 
     public GraphicalFrameJSWING(){
@@ -46,35 +45,35 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     @Override
     public void addMissionToFrame(Mission mission) {
         JLabel missionTitle = new JLabel(mission.getName());
-        missionTitle.setBounds(xTitre, yBase, 400, 50);//x y w h
+        missionTitle.setBounds(X_TITRE, Y_BASE, 400, 50);//x y w h
         utils.setTitle(missionTitle);
         jf.getContentPane().add(missionTitle);
-        yBase = yBase+deltaDescription;
+        Y_BASE = Y_BASE+DELTA_DESCRIPTION;
         if(mission.hasDescription()){
             JLabel missionDescription = new JLabel(mission.getDescription());
-            missionDescription.setBounds(xDescription, yBase, 400, 50);//x y w h
+            missionDescription.setBounds(X_DESCRIPTION, Y_BASE, 400, 50);//x y w h
             utils.setDescription(missionDescription);
             jf.getContentPane().add(missionDescription);
         }
-        yBase = yBase+deltaSubmission;
+        Y_BASE = Y_BASE+DELTA_SUBMISSION;
         if(mission.hasSubmission()){
             for(int i = 0;i < mission.getSubmissions().size();i++){
                 Submission sub = mission.getSubmissions().get(i);
                 JLabel missionSubmission = new JLabel(sub.getName());
-                missionSubmission.setBounds(xSubmission, yBase, 400, 50);//x y w h
+                missionSubmission.setBounds(X_SUBMISSION, Y_BASE, 400, 50);//x y w h
                 utils.setSubtitle(missionSubmission);
                 jf.getContentPane().add(missionSubmission);
                 if(sub.hasDescription()){
-                    yBase = yBase + deltaDescription;
+                    Y_BASE = Y_BASE + DELTA_DESCRIPTION;
                     JLabel missionSubDescription = new JLabel(sub.getDescription());
-                    missionSubDescription.setBounds(xSubDescription, yBase, 400, 50);//x y w h
+                    missionSubDescription.setBounds(X_SUBDESCRIPTION, Y_BASE, 400, 50);//x y w h
                     utils.setSubdescription(missionSubDescription);
                     jf.getContentPane().add(missionSubDescription);
                 }
-                yBase = yBase + deltaSubmission;
+                Y_BASE = Y_BASE + DELTA_SUBMISSION;
             }
         }
-        yBase = yBase + deltaMission;
+        Y_BASE = Y_BASE + DELTA_MISSION;
         jf.revalidate();
         jf.repaint();
     }
