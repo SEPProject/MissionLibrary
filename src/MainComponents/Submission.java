@@ -37,4 +37,12 @@ public class Submission {
         this.description = description;
     }
 
+    public boolean hasDescription(){
+        if(this.description != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

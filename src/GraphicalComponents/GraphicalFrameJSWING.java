@@ -36,11 +36,13 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         if(mission.hasDescription()){
             JLabel missionDescription = new JLabel(mission.getDescription());
             missionDescription.setBounds(15, 60, 400, 50);//x y w h
-            utils.setTitle(missionDescription);
+            utils.setDescription(missionDescription);
             jf.getContentPane().add(missionDescription);
         }
         if(mission.hasSubmission()){
+            for(int i = 0;i < mission.getSubmissions().size();i++){
 
+            }
         }
 
         jf.revalidate();
