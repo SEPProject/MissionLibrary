@@ -16,7 +16,7 @@ import java.awt.event.MouseListener;
 public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel {
 
     int Y_BASE = 20;
-    int DELTA_MISSION = 30;
+    int DELTA_MISSION = 15;
     int DELTA_SUBMISSION = 40;
     int DELTA_DESCRIPTION = 15;
     int X_TITRE = 20;
@@ -29,8 +29,13 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
     int Y_PANEL_SIZE = 520 ;
     int Y_PREFERRED_SIZE = 490;
 
+    int normal_height = 0;
+    int ALL_HIDE = 60;
+
     int y = 20;
     UtilsJSWING utils;
+
+    JLabel missionSubmissionTest;
 
     private Binding createBindingMarginLeft(int margin){
         return  new Binding(Edge.LEFT, margin, Direction.RIGHT, Edge.LEFT, Binding.PARENT);
@@ -48,7 +53,7 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
         this.setLayout(new RelativeLayout());
 
         final JLabel missionTitle = new JLabel(mission.getName());
-        missionTitle.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION, X_TITRE, 0, 0));
+        missionTitle.setBorder(BorderFactory.createEmptyBorder(0, X_TITRE, 0, 0));
         utils.setTitle(missionTitle);
 
         y = y + DELTA_MISSION;
@@ -87,6 +92,7 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
                 if(sub.hasDescription()){
                     JLabel missionSubDescription = new JLabel(sub.getDescription());
                     missionSubDescription.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION,X_SUBDESCRIPTION , 0, 0));
+                    missionSubmissionTest = missionSubDescription;
 
                     RelativeConstraints rc4 = new RelativeConstraints();
                     rc4.addBinding(createBindingMarginLeft(X_SUBDESCRIPTION));
@@ -102,7 +108,7 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
 
         Y_BASE = Y_BASE + DELTA_MISSION;
 
-        this.addMouseListener(new MouseListener() {
+        missionTitle.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
@@ -110,13 +116,25 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
 
             @Override
             public void mousePressed(MouseEvent e) {
-                if(missionTitle.isVisible()){
-                    missionTitle.setVisible(false);
-                }else{
-                    missionTitle.setVisible(true);
+
+                if(normal_height == 0){
+                    normal_height = (int)getPanel().getPreferredSize().getHeight();
                 }
-                getPanel().setVisible(true);
-                getPanel().repaint();
+
+                if(missionSubmissionTest.isVisible()){
+                    missionSubmissionTest.setVisible(false);
+                    getPanel().setPreferredSize(new Dimension(
+                            (int)getPanel().getPreferredSize().getWidth(),
+                            ALL_HIDE));
+                    getPanel().repaint();
+                }else{
+                    missionSubmissionTest.setVisible(true);
+                    getPanel().setPreferredSize(new Dimension(
+                            (int)getPanel().getPreferredSize().getWidth(),
+                            normal_height));
+                    getPanel().repaint();
+                }
+
             }
 
             @Override

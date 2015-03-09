@@ -17,14 +17,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     JScrollPane jsp;
 
     UtilsJSWING utils;
-    int Y_BASE = 20;
-    int DELTA_MISSION = 30;
-    int DELTA_SUBMISSION = 40;
-    int DELTA_DESCRIPTION = 15;
     int X_TITRE = 20;
-    int X_DESCRIPTION = 35;
-    int X_SUBMISSION = 35;
-    int X_SUBDESCRIPTION = 40;
 
     int X_PANEL_SIZE = 800;
     int X_PREFERRED_SIZE = 795;
