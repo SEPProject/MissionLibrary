@@ -5,6 +5,8 @@ import UtilsComponent.UtilsJSWING;
 import edu.cmu.relativelayout.*;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 
 /**
  * Created by julescantegril on 07/03/2015.
@@ -15,6 +17,8 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     JPanel jpLittle;
     JPanel jp;
     JScrollPane jsp;
+
+    ArrayList<JPanel> everyPanelMission;
 
     UtilsJSWING utils;
     int X_TITRE = 20;
@@ -27,7 +31,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
 
     public GraphicalFrameJSWING(){
         utils = new UtilsJSWING();
-
+        everyPanelMission = new ArrayList<JPanel>();
         jf = new JFrame();
         jf.setSize(X_PANEL_SIZE, Y_PANEL_SIZE);
         jf.getContentPane().setLayout(null);
@@ -45,25 +49,34 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
 
     }
 
-    private Binding createBindingMarginLeft(int margin){
-        return  new Binding(Edge.LEFT, margin, Direction.RIGHT, Edge.LEFT, Binding.PARENT);
+    private Binding createBindingMarginLeft(int margin,Component comp){
+        return  new Binding(Edge.LEFT, margin, Direction.RIGHT, Edge.LEFT,comp);
     }
-    private Binding createBindingMarginTop(int margin){
-        return  new Binding(Edge.TOP, margin, Direction.BELOW, Edge.TOP, Binding.PARENT);
+    private Binding createBindingMarginTop(int margin,Component comp){
+        return  new Binding(Edge.TOP, margin, Direction.BELOW, Edge.TOP,comp);
     }
     @Override
     public void refreshFrame() {
-
+        jp.removeAll();
+        y = 20;
+        for(int i = 0;i<this.everyPanelMission.size();i++){
+            RelativeConstraints rc = new RelativeConstraints();
+            rc.addBinding(createBindingMarginTop(y, Binding.PARENT));
+            rc.addBinding(createBindingMarginLeft(X_TITRE, Binding.PARENT));
+            y = y+ 10 + (int)this.everyPanelMission.get(i).getPreferredSize().getHeight();
+            jp.add(this.everyPanelMission.get(i), rc);
+        }
+        this.repaint();
     }
 
     @Override
     public void addMissionToFrame(Mission mission) {
         RelativeConstraints rc = new RelativeConstraints();
-        rc.addBinding(createBindingMarginLeft(X_TITRE));
-        rc.addBinding(createBindingMarginTop(y));
-        DropDownPanelJSWING panel = new DropDownPanelJSWING(mission);
+        DropDownPanelJSWING panel = new DropDownPanelJSWING(mission,this);
+        everyPanelMission.add(panel);
+        rc.addBinding(createBindingMarginTop(y,Binding.PARENT));
+        rc.addBinding(createBindingMarginLeft(X_TITRE,Binding.PARENT));
         jp.add(panel, rc);
         y = y+ 10 + (int)panel.getPreferredSize().getHeight();
-        ;
     }
 }

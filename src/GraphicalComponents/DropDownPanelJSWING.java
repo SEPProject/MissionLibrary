@@ -24,11 +24,6 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
     int X_SUBMISSION = 35;
     int X_SUBDESCRIPTION = 40;
 
-    int X_PANEL_SIZE = 800;
-    int X_PREFERRED_SIZE = 795;
-    int Y_PANEL_SIZE = 520 ;
-    int Y_PREFERRED_SIZE = 490;
-
     int normal_height = 0;
     int ALL_HIDE = 60;
 
@@ -36,6 +31,7 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
     UtilsJSWING utils;
 
     JLabel missionSubmissionTest;
+    GraphicalFrameJSWING gJF;
 
     private Binding createBindingMarginLeft(int margin){
         return  new Binding(Edge.LEFT, margin, Direction.RIGHT, Edge.LEFT, Binding.PARENT);
@@ -44,10 +40,10 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
         return  new Binding(Edge.TOP, margin, Direction.BELOW, Edge.TOP, Binding.PARENT);
     }
 
-    public DropDownPanelJSWING(Mission mission){
+    public DropDownPanelJSWING(Mission mission,GraphicalFrameJSWING gJF){
         super();
         utils = new UtilsJSWING();
-
+        this.gJF = gJF;
       //  this.setSize(X_PANEL_SIZE, 100);
         this.setBackground(Color.blue);
         this.setLayout(new RelativeLayout());
@@ -134,6 +130,7 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
                             normal_height));
                     getPanel().repaint();
                 }
+                getgJF().refreshFrame();
 
             }
 
@@ -172,5 +169,9 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
 
     public DropDownPanelJSWING getPanel(){
         return this;
+    }
+
+    public GraphicalFrameJSWING getgJF(){
+        return this.gJF;
     }
 }
