@@ -17,21 +17,24 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     JPanel jpLittle;
     JPanel jp;
     JScrollPane jsp;
+    JLabel labelTitle;
 
     ArrayList<JPanel> everyPanelMission;
 
     UtilsJSWING utils;
-    int X_TITRE = 20;
+    private int X_TITRE = 20;
 
-    int X_PANEL_SIZE = 800;
-    int X_PREFERRED_SIZE = 795;
-    int Y_PANEL_SIZE = 520 ;
-    int Y_PREFERRED_SIZE = 490;
-    int y = 75;
-    int Y_BASE = 75;
-    int MISSION_SEPARATION = 10;
+    private int X_PANEL_SIZE = 800;
+    private int X_PREFERRED_SIZE = 795;
+    private int Y_PANEL_SIZE = 520 ;
+    private int Y_PREFERRED_SIZE = 490;
+    private int y = 75;
+    private int Y_BASE = 75;
+    private int MISSION_SEPARATION = 10;
+    private int X_TITLE = 350;
+    private int Y_TITLE = 40;
 
-    public GraphicalFrameJSWING(int xPanelSize,int yPanelSize){
+    public GraphicalFrameJSWING(int xPanelSize,int yPanelSize,String title){
         utils = new UtilsJSWING();
         everyPanelMission = new ArrayList<JPanel>();
         jf = new JFrame();
@@ -40,9 +43,17 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         jf.setVisible(true);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
+
         jp = new JPanel();
         jp.setSize(X_PANEL_SIZE, Y_PANEL_SIZE);
         jp.setLayout(new RelativeLayout());
+
+        labelTitle = new JLabel(title);
+        RelativeConstraints rc = new RelativeConstraints();
+        rc.addBinding(createBindingMarginTop(Y_TITLE, Binding.PARENT));
+        rc.addBinding(createBindingMarginLeft(X_TITLE, Binding.PARENT));
+        jp.add(labelTitle,rc);
 
         jsp = new JScrollPane(jp);
         jsp.setSize(X_PREFERRED_SIZE, Y_PREFERRED_SIZE);
@@ -57,9 +68,14 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     private Binding createBindingMarginTop(int margin,Component comp){
         return  new Binding(Edge.TOP, margin, Direction.BELOW, Edge.TOP,comp);
     }
+
     @Override
     public void refreshFrame() {
-        jp.removeAll();
+        for(int i = 0;i < jp.getComponentCount()-1;i++){
+            if(i != 0){
+                jp.remove(i);
+            }
+        }
         y = Y_BASE;
         for(int i = 0;i<this.everyPanelMission.size();i++){
             RelativeConstraints rc = new RelativeConstraints();
@@ -80,7 +96,6 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         rc.addBinding(createBindingMarginLeft(X_TITRE,Binding.PARENT));
         jp.add(panel, rc);
         y = y+ 10 + (int)panel.getPreferredSize().getHeight();
-        jp.repaint();
         this.repaint();
     }
 }

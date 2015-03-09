@@ -14,12 +14,12 @@ public class MissionPanel {
      */
     int X_PANEL_SIZE = 800;
     int Y_PANEL_SIZE = 520 ;
-    public MissionPanel(int xPanelSize,int yPanelSize){
-        this.gp = new GraphicalFrameJSWING(xPanelSize,yPanelSize);
+    public MissionPanel(int xPanelSize,int yPanelSize,String title){
+        this.gp = new GraphicalFrameJSWING(xPanelSize,yPanelSize,title);
     }
 
-    public MissionPanel(){
-        this.gp = new GraphicalFrameJSWING(X_PANEL_SIZE,Y_PANEL_SIZE);
+    public MissionPanel(String title){
+        this.gp = new GraphicalFrameJSWING(X_PANEL_SIZE,Y_PANEL_SIZE,title);
     }
 
     /**
@@ -42,7 +42,7 @@ public class MissionPanel {
     
 
     public static void main(String [] args){
-            MissionPanel mp = new MissionPanel();
+            MissionPanel mp = new MissionPanel("SQL Mission");
             Mission mission = new Mission("Premier mission","Premiere description");
             mission.addSubmission(new Submission("Premier sub","Premiere sub desc"));
             mission.addSubmission(new Submission("Deux sub","Deux sub desc"));
