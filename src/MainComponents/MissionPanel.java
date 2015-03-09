@@ -2,6 +2,8 @@ package MainComponents;
 
 import GraphicalComponents.GraphicalFrameJSWING;
 
+import javax.swing.*;
+
 /**
  * Created by julescantegril on 07/03/2015.
  */
@@ -36,8 +38,8 @@ public class MissionPanel {
      * @return the frame associated with every missions added
      */
 
-    public GraphicalFrameJSWING getPannelFrame(){
-        return this.gp;
+    public JScrollPane getPannelFrame(){
+        return this.gp.getScrollPane();
     }
     
 
@@ -58,6 +60,7 @@ public class MissionPanel {
         mp.addMission(mission);
         mp.addMission(mission2);
         mp.addMission(mission2);
+        mp.getPannelFrame();
 
     }
 

@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFrame{
 
     JFrame jf;
-    JPanel jpLittle;
     JPanel jp;
     JScrollPane jsp;
     JLabel labelTitle;
@@ -105,5 +104,9 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         jp.add(panel, rc);
         y = y+ 10 + (int)panel.getPreferredSize().getHeight();
         this.repaint();
+    }
+
+    public JScrollPane getScrollPane(){
+        return jsp;
     }
 }
