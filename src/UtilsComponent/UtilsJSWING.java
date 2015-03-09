@@ -8,6 +8,11 @@ import java.awt.*;
  */
 public class UtilsJSWING implements AbstractUtils<JLabel> {
 
+    public void setPanelTitle(JLabel text){
+        Font font = new Font("Serif", Font.BOLD, 20);
+        text.setFont(font);
+    }
+
     public void setTitle(JLabel text){
         Font font = new Font("Serif", Font.BOLD, 20);
         text.setFont(font);

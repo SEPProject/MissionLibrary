@@ -5,7 +5,8 @@ package UtilsComponent;
  */
 public abstract interface AbstractUtils<T> {
 
-    String lol = "";
+
+    public abstract void setPanelTitle(T text);
 
     public abstract void setTitle(T text);
 

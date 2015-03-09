@@ -15,6 +15,7 @@ import java.awt.event.MouseListener;
  */
 public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel {
 
+   static int maxWidth = 0;
     int Y_BASE = 20;
     int DELTA_MISSION = 15;
     int DELTA_SUBMISSION = 40;
@@ -44,7 +45,6 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
         super();
         utils = new UtilsJSWING();
         this.gJF = gJF;
-      //  this.setSize(X_PANEL_SIZE, 100);
         this.setBackground(Color.blue);
         this.setLayout(new RelativeLayout());
 
@@ -119,15 +119,11 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
 
                 if (missionSubmissionTest.isVisible()) {
                     missionSubmissionTest.setVisible(false);
-                    getPanel().setPreferredSize(new Dimension(
-                            (int) getPanel().getPreferredSize().getWidth(),
-                            ALL_HIDE));
+                    getPanel().setPreferredSize(new Dimension(DropDownPanelJSWING.maxWidth,ALL_HIDE));
                     getPanel().repaint();
                 } else {
                     missionSubmissionTest.setVisible(true);
-                    getPanel().setPreferredSize(new Dimension(
-                            (int) getPanel().getPreferredSize().getWidth(),
-                            normal_height));
+                    getPanel().setPreferredSize(new Dimension(DropDownPanelJSWING.maxWidth,normal_height));
                     getPanel().repaint();
                 }
                 getgJF().refreshFrame();
@@ -154,10 +150,12 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
             normal_height = (int)getPanel().getPreferredSize().getHeight();
         }
         missionSubmissionTest.setVisible(false);
-        getPanel().setPreferredSize(new Dimension(
-                (int) getPanel().getPreferredSize().getWidth(),
-                ALL_HIDE));
+        if( (int) getPanel().getPreferredSize().getWidth() > maxWidth){
+            DropDownPanelJSWING.maxWidth = (int) getPanel().getPreferredSize().getWidth()+10;
+        }
+        getPanel().setPreferredSize(new Dimension(DropDownPanelJSWING.maxWidth, ALL_HIDE));
         getPanel().repaint();
+        getgJF().refreshWidth();
     }
 
     @Override

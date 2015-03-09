@@ -50,7 +50,7 @@ public class MissionPanel {
             mission.addSubmission(new Submission("Quatre sub","Quatre sub desc"));
 
         Mission mission2 = new Mission("Premier mission","Premiere description");
-        mission2.addSubmission(new Submission("Premier sub","Premiere sub desc"));
+        mission2.addSubmission(new Submission("Premier sub","Premiere sub desc mega longue descirptioo ntout las rd"));
         mission2.addSubmission(new Submission("Deux sub","Deux sub desc"));
         mission2.addSubmission(new Submission("Trois sub","Trois sub desc"));
         mission2.addSubmission(new Submission("Quatre sub","Quatre sub desc"));

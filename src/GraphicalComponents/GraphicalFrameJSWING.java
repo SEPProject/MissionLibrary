@@ -87,6 +87,14 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         this.repaint();
     }
 
+    public void refreshWidth() {
+
+        for(int i = 0;i<this.everyPanelMission.size();i++){
+            this.everyPanelMission.get(i).setPreferredSize(new Dimension(DropDownPanelJSWING.maxWidth,(int)this.everyPanelMission.get(i).getPreferredSize().getHeight()));
+        }
+        this.repaint();
+    }
+
     @Override
     public void addMissionToFrame(Mission mission) {
         RelativeConstraints rc = new RelativeConstraints();

@@ -8,7 +8,7 @@ import MainComponents.Mission;
 public interface AbstractGraphicalFrame {
 
     public abstract void refreshFrame();
+    public abstract void refreshWidth();
     public abstract void addMissionToFrame(Mission mission);
-
 
 }
