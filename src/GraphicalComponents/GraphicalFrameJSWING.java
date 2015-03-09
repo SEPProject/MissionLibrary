@@ -98,7 +98,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     @Override
     public void addMissionToFrame(Mission mission) {
         RelativeConstraints rc = new RelativeConstraints();
-        DropDownPanelJSWING panel = new DropDownPanelJSWING(mission,this);
+        DropDownPanelJSWING panel = new DropDownPanelJSWING(mission,this,null);
         everyPanelMission.add(panel);
         rc.addBinding(createBindingMarginTop(y,Binding.PARENT));
         rc.addBinding(createBindingMarginLeft(X_TITRE,Binding.PARENT));

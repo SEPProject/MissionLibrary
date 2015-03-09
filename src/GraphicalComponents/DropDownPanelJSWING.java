@@ -41,11 +41,15 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
         return  new Binding(Edge.TOP, margin, Direction.BELOW, Edge.TOP, Binding.PARENT);
     }
 
-    public DropDownPanelJSWING(Mission mission,GraphicalFrameJSWING gJF){
+    public DropDownPanelJSWING(Mission mission,GraphicalFrameJSWING gJF,Color color){
         super();
         utils = new UtilsJSWING();
         this.gJF = gJF;
-        this.setBackground(Color.blue);
+        if(color == null){
+            this.setBackground(Color.PINK);
+        }else{
+            this.setBackground(color);
+        }
         this.setLayout(new RelativeLayout());
 
         final JLabel missionTitle = new JLabel(mission.getName());
@@ -158,20 +162,6 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
         getgJF().refreshWidth();
     }
 
-    @Override
-    public void setMission(Mission mission) {
-
-    }
-
-    @Override
-    public void dropDown(boolean drop) {
-
-    }
-
-    @Override
-    public void addSubmissionToPanel(Submission mission) {
-
-    }
 
     public DropDownPanelJSWING getPanel(){
         return this;
