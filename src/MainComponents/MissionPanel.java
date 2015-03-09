@@ -12,9 +12,14 @@ public class MissionPanel {
     /**
      * Instatiate a new mission Panel
      */
+    int X_PANEL_SIZE = 800;
+    int Y_PANEL_SIZE = 520 ;
+    public MissionPanel(int xPanelSize,int yPanelSize){
+        this.gp = new GraphicalFrameJSWING(xPanelSize,yPanelSize);
+    }
 
     public MissionPanel(){
-        this.gp = new GraphicalFrameJSWING();
+        this.gp = new GraphicalFrameJSWING(X_PANEL_SIZE,Y_PANEL_SIZE);
     }
 
     /**

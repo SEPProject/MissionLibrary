@@ -104,7 +104,7 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
 
         Y_BASE = Y_BASE + DELTA_MISSION;
 
-        missionTitle.addMouseListener(new MouseListener() {
+        this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
 
@@ -113,20 +113,20 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
             @Override
             public void mousePressed(MouseEvent e) {
 
-                if(normal_height == 0){
-                    normal_height = (int)getPanel().getPreferredSize().getHeight();
+                if (normal_height == 0) {
+                    normal_height = (int) getPanel().getPreferredSize().getHeight();
                 }
 
-                if(missionSubmissionTest.isVisible()){
+                if (missionSubmissionTest.isVisible()) {
                     missionSubmissionTest.setVisible(false);
                     getPanel().setPreferredSize(new Dimension(
-                            (int)getPanel().getPreferredSize().getWidth(),
+                            (int) getPanel().getPreferredSize().getWidth(),
                             ALL_HIDE));
                     getPanel().repaint();
-                }else{
+                } else {
                     missionSubmissionTest.setVisible(true);
                     getPanel().setPreferredSize(new Dimension(
-                            (int)getPanel().getPreferredSize().getWidth(),
+                            (int) getPanel().getPreferredSize().getWidth(),
                             normal_height));
                     getPanel().repaint();
                 }
@@ -150,6 +150,14 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
             }
         });
 
+        if(normal_height == 0){
+            normal_height = (int)getPanel().getPreferredSize().getHeight();
+        }
+        missionSubmissionTest.setVisible(false);
+        getPanel().setPreferredSize(new Dimension(
+                (int) getPanel().getPreferredSize().getWidth(),
+                ALL_HIDE));
+        getPanel().repaint();
     }
 
     @Override

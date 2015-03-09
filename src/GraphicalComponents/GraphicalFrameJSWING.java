@@ -27,13 +27,15 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     int X_PREFERRED_SIZE = 795;
     int Y_PANEL_SIZE = 520 ;
     int Y_PREFERRED_SIZE = 490;
-    int y = 20;
+    int y = 75;
+    int Y_BASE = 75;
+    int MISSION_SEPARATION = 10;
 
-    public GraphicalFrameJSWING(){
+    public GraphicalFrameJSWING(int xPanelSize,int yPanelSize){
         utils = new UtilsJSWING();
         everyPanelMission = new ArrayList<JPanel>();
         jf = new JFrame();
-        jf.setSize(X_PANEL_SIZE, Y_PANEL_SIZE);
+        jf.setSize(xPanelSize, yPanelSize);
         jf.getContentPane().setLayout(null);
         jf.setVisible(true);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,12 +60,12 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     @Override
     public void refreshFrame() {
         jp.removeAll();
-        y = 20;
+        y = Y_BASE;
         for(int i = 0;i<this.everyPanelMission.size();i++){
             RelativeConstraints rc = new RelativeConstraints();
             rc.addBinding(createBindingMarginTop(y, Binding.PARENT));
             rc.addBinding(createBindingMarginLeft(X_TITRE, Binding.PARENT));
-            y = y+ 10 + (int)this.everyPanelMission.get(i).getPreferredSize().getHeight();
+            y = y+ MISSION_SEPARATION + (int)this.everyPanelMission.get(i).getPreferredSize().getHeight();
             jp.add(this.everyPanelMission.get(i), rc);
         }
         this.repaint();
@@ -78,5 +80,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         rc.addBinding(createBindingMarginLeft(X_TITRE,Binding.PARENT));
         jp.add(panel, rc);
         y = y+ 10 + (int)panel.getPreferredSize().getHeight();
+        jp.repaint();
+        this.repaint();
     }
 }
