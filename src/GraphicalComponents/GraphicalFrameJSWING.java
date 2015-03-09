@@ -1,7 +1,6 @@
 package GraphicalComponents;
 
 import MainComponents.Mission;
-import MainComponents.Submission;
 import UtilsComponent.UtilsJSWING;
 import edu.cmu.relativelayout.*;
 
@@ -31,6 +30,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     int X_PREFERRED_SIZE = 795;
     int Y_PANEL_SIZE = 520 ;
     int Y_PREFERRED_SIZE = 490;
+    int y = 20;
 
     public GraphicalFrameJSWING(){
         utils = new UtilsJSWING();
@@ -63,62 +63,12 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
 
     }
 
-    int y = 20;
     @Override
     public void addMissionToFrame(Mission mission) {
-        JLabel missionTitle = new JLabel(mission.getName());
-        missionTitle.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION, X_TITRE, 0, 0));
-        utils.setTitle(missionTitle);
-
-
-
         RelativeConstraints rc = new RelativeConstraints();
         rc.addBinding(createBindingMarginLeft(X_TITRE));
         rc.addBinding(createBindingMarginTop(y));
-        y = y + DELTA_DESCRIPTION;
-        jp.add(missionTitle,rc);
-        if(mission.hasDescription()){
-            JLabel missionDescription = new JLabel(mission.getDescription());
-            missionDescription.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION, X_DESCRIPTION, 0, 0));
-
-            RelativeConstraints rc2 = new RelativeConstraints();
-            rc2.addBinding(createBindingMarginLeft(X_DESCRIPTION));
-            rc2.addBinding(createBindingMarginTop(y));
-
-            utils.setDescription(missionDescription);
-            jp.add(missionDescription,rc2);
-            y = y + DELTA_DESCRIPTION;
-        }
-        if(mission.hasSubmission()){
-            for(int i = 0;i < mission.getSubmissions().size();i++){
-                Submission sub = mission.getSubmissions().get(i);
-                JLabel missionSubmission = new JLabel(sub.getName());
-                missionSubmission.setBorder(BorderFactory.createEmptyBorder(DELTA_SUBMISSION,X_SUBMISSION , 0, 0));
-
-                RelativeConstraints rc3 = new RelativeConstraints();
-                rc3.addBinding(createBindingMarginLeft(X_SUBMISSION));
-                rc3.addBinding(createBindingMarginTop(y));
-
-                utils.setSubtitle(missionSubmission);
-                jp.add(missionSubmission,rc3);
-                y = y + DELTA_SUBMISSION;
-
-                if(sub.hasDescription()){
-                    JLabel missionSubDescription = new JLabel(sub.getDescription());
-                    missionSubDescription.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION,X_SUBDESCRIPTION , 0, 0));
-
-                    RelativeConstraints rc4 = new RelativeConstraints();
-                    rc4.addBinding(createBindingMarginLeft(X_SUBDESCRIPTION));
-                    rc4.addBinding(createBindingMarginTop(y));
-
-                    utils.setSubdescription(missionSubDescription);
-                    jp.add(missionSubDescription,rc4);
-                    y = y + DELTA_DESCRIPTION;
-                }
-                Y_BASE = Y_BASE + DELTA_SUBMISSION;
-            }
-        }
-
-        Y_BASE = Y_BASE + DELTA_MISSION;
+        jp.add(new DropDownPanelJSWING(mission),rc);
+        y = y + Y_PANEL_SIZE;
     }
 }
