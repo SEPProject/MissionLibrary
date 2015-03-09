@@ -68,7 +68,9 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         RelativeConstraints rc = new RelativeConstraints();
         rc.addBinding(createBindingMarginLeft(X_TITRE));
         rc.addBinding(createBindingMarginTop(y));
-        jp.add(new DropDownPanelJSWING(mission),rc);
-        y = y + Y_PANEL_SIZE;
+        DropDownPanelJSWING panel = new DropDownPanelJSWING(mission);
+        jp.add(panel, rc);
+        y = y+ 10 + (int)panel.getPreferredSize().getHeight();
+        ;
     }
 }

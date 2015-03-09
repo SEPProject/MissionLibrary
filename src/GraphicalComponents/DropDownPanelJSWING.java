@@ -6,6 +6,9 @@ import UtilsComponent.UtilsJSWING;
 import edu.cmu.relativelayout.*;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * Created by julescantegril on 07/03/2015.
@@ -40,10 +43,11 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
         super();
         utils = new UtilsJSWING();
 
-        this.setSize(X_PANEL_SIZE, Y_PANEL_SIZE);
+      //  this.setSize(X_PANEL_SIZE, 100);
+        this.setBackground(Color.blue);
         this.setLayout(new RelativeLayout());
 
-        JLabel missionTitle = new JLabel(mission.getName());
+        final JLabel missionTitle = new JLabel(mission.getName());
         missionTitle.setBorder(BorderFactory.createEmptyBorder(DELTA_DESCRIPTION, X_TITRE, 0, 0));
         utils.setTitle(missionTitle);
 
@@ -97,6 +101,40 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
         }
 
         Y_BASE = Y_BASE + DELTA_MISSION;
+
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if(missionTitle.isVisible()){
+                    missionTitle.setVisible(false);
+                }else{
+                    missionTitle.setVisible(true);
+                }
+                getPanel().setVisible(true);
+                getPanel().repaint();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+
     }
 
     @Override
