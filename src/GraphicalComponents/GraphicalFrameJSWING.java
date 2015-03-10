@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFrame{
 
-    private JFrame jf;
+    //private JFrame jf;
     private  JPanel jp;
     private JScrollPane jsp;
     private JLabel labelTitle;
@@ -36,11 +36,11 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     public GraphicalFrameJSWING(int xPanelSize,int yPanelSize,String title){
         utils = new UtilsJSWING();
         everyPanelMission = new ArrayList<JPanel>();
-        jf = new JFrame();
+       /* jf = new JFrame();
         jf.setSize(xPanelSize, yPanelSize);
         jf.getContentPane().setLayout(null);
         jf.setVisible(true);
-        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
 
 
 
@@ -57,7 +57,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         jsp = new JScrollPane(jp);
         jsp.setSize(X_PREFERRED_SIZE, Y_PREFERRED_SIZE);
 
-        jf.add(jsp);
+//        jf.add(jsp);
 
     }
 

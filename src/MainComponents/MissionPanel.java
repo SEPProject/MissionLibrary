@@ -34,7 +34,8 @@ public class MissionPanel {
     }
 
     /**
-     * Permit the user to get the frame after the add of mission and submission
+     * Permit the user to get the frame after the add
+     * of mission and submission
      * @return the frame associated with every missions added
      */
 
