@@ -13,14 +13,14 @@ import java.util.ArrayList;
  */
 public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFrame{
 
-    JFrame jf;
-    JPanel jp;
-    JScrollPane jsp;
-    JLabel labelTitle;
+    private JFrame jf;
+    private  JPanel jp;
+    private JScrollPane jsp;
+    private JLabel labelTitle;
 
-    ArrayList<JPanel> everyPanelMission;
+    private ArrayList<JPanel> everyPanelMission;
 
-    UtilsJSWING utils;
+    private UtilsJSWING utils;
     private int X_TITRE = 20;
 
     private int X_PANEL_SIZE = 800;

@@ -15,24 +15,24 @@ import java.awt.event.MouseListener;
  */
 public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel {
 
-   static int maxWidth = 0;
-    int Y_BASE = 20;
-    int DELTA_MISSION = 15;
-    int DELTA_SUBMISSION = 40;
-    int DELTA_DESCRIPTION = 15;
-    int X_TITRE = 20;
-    int X_DESCRIPTION = 35;
-    int X_SUBMISSION = 35;
-    int X_SUBDESCRIPTION = 40;
+    protected  static int maxWidth = 0;
+    private int Y_BASE = 20;
+    private  int DELTA_MISSION = 15;
+    private  int DELTA_SUBMISSION = 40;
+    private  int DELTA_DESCRIPTION = 15;
+    private  int X_TITRE = 20;
+    private  int X_DESCRIPTION = 35;
+    private  int X_SUBMISSION = 35;
+    private  int X_SUBDESCRIPTION = 40;
 
-    int normal_height = 0;
-    int ALL_HIDE = 60;
+    private int normal_height = 0;
+    private  int ALL_HIDE = 60;
 
-    int y = 20;
-    UtilsJSWING utils;
+    private   int y = 20;
+    private  UtilsJSWING utils;
 
-    JLabel missionSubmissionTest;
-    GraphicalFrameJSWING gJF;
+    private  JLabel missionSubmissionTest;
+    private  GraphicalFrameJSWING gJF;
 
     private Binding createBindingMarginLeft(int margin){
         return  new Binding(Edge.LEFT, margin, Direction.RIGHT, Edge.LEFT, Binding.PARENT);
