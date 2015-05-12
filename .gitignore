@@ -1,3 +1,5 @@
 logs/*
 !.gitkeep
 .idea
+/build/
+/dist/

@@ -1,5 +1,6 @@
 package MainComponents;
 
+import GraphicalComponents.DropDownPanelJSWING;
 import java.util.ArrayList;
 
 /**
@@ -13,9 +14,11 @@ public class Mission {
      * It also has submissions but it is not necessary
      */
 
+   
     private String name;
     private String description;
     private ArrayList<Submission> submissions;
+    private DropDownPanelJSWING missionDropDownPanel;
 
     public Mission(String name){
         this.name = name;
@@ -36,7 +39,7 @@ public class Mission {
     public void addSubmission(Submission sub){
         this.submissions.add(sub);
     }
-
+    
     /**
      *
      * @return  the submission list of the msision
@@ -60,6 +63,14 @@ public class Mission {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public DropDownPanelJSWING getMissionDropDownPanel(){
+        return this.missionDropDownPanel;
+    }
+    
+    public void setMissionDropDownPanel(DropDownPanelJSWING ddpj){
+        this.missionDropDownPanel = ddpj;
     }
 
     public boolean hasSubmission(){

@@ -170,4 +170,8 @@ public class DropDownPanelJSWING extends JPanel implements AbstractDropDownPanel
     public GraphicalFrameJSWING getgJF(){
         return this.gJF;
     }
+    
+    public void changeColor(Color x){
+        this.setBackground(x);
+    }
 }

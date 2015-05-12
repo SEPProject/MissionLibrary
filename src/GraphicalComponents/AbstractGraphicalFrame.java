@@ -10,5 +10,6 @@ public interface AbstractGraphicalFrame {
     public abstract void refreshFrame();
     public abstract void refreshWidth();
     public abstract void addMissionToFrame(Mission mission);
+    public abstract void setColorMissionIsDone(Mission mission,boolean x);
 
 }

@@ -23,14 +23,10 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     private UtilsJSWING utils;
     private int X_TITRE = 20;
 
-    private int X_PANEL_SIZE = 800;
-    private int X_PREFERRED_SIZE = 795;
-    private int Y_PANEL_SIZE = 520 ;
-    private int Y_PREFERRED_SIZE = 490;
     private int y = 75;
     private int Y_BASE = 75;
     private int MISSION_SEPARATION = 10;
-    private int X_TITLE = 350;
+    private int X_TITLE = 150;
     private int Y_TITLE = 40;
 
     public GraphicalFrameJSWING(int xPanelSize,int yPanelSize,String title){
@@ -45,7 +41,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
 
 
         jp = new JPanel();
-        jp.setSize(X_PANEL_SIZE, Y_PANEL_SIZE);
+        jp.setSize(xPanelSize, yPanelSize);
         jp.setLayout(new RelativeLayout());
 
         labelTitle = new JLabel(title);
@@ -55,7 +51,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         jp.add(labelTitle,rc);
 
         jsp = new JScrollPane(jp);
-        jsp.setSize(X_PREFERRED_SIZE, Y_PREFERRED_SIZE);
+        jsp.setSize(xPanelSize, yPanelSize);
 
 //        jf.add(jsp);
 
@@ -98,6 +94,7 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
     public void addMissionToFrame(Mission mission) {
         RelativeConstraints rc = new RelativeConstraints();
         DropDownPanelJSWING panel = new DropDownPanelJSWING(mission,this,null);
+        mission.setMissionDropDownPanel(panel);
         everyPanelMission.add(panel);
         rc.addBinding(createBindingMarginTop(y,Binding.PARENT));
         rc.addBinding(createBindingMarginLeft(X_TITRE,Binding.PARENT));
@@ -105,6 +102,16 @@ public class GraphicalFrameJSWING extends JFrame implements AbstractGraphicalFra
         y = y+ 10 + (int)panel.getPreferredSize().getHeight();
         this.repaint();
     }
+    
+    @Override
+    public void setColorMissionIsDone(Mission mission, boolean x){
+        if (x){
+            mission.getMissionDropDownPanel().changeColor(Color.BLUE);
+        }else {
+            mission.getMissionDropDownPanel().changeColor(Color.PINK);
+        }
+    }
+    
 
     public JScrollPane getScrollPane(){
         return jsp;
